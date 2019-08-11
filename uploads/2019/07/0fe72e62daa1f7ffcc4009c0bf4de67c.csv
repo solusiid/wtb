@@ -1,0 +1,27 @@
+Name,Status
+<iframe onload="alert('XSS')"></iframe>,1
+Suzuki,1
+Volvo,1
+Renault,1
+Wolksvagen,1
+Jaguar,1
+Isuzu,1
+shruti,1
+"shruti 1",0
+HONDA,1
+Audi,1
+Toyota,1
+Corolla,1
+Name,0
+Ghibli,1
+Levante,1
+BMW,1
+"Rolls Royce",1
+"Brand new",1
+"Maruti ZZ",1
+"Ghibli M",0
+"Levante M",0
+"Volvo Q7",1
+"shruti 2",0
+RR,1
+Maserati,1

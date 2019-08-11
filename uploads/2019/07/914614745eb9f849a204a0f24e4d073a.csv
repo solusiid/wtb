@@ -1,0 +1,3 @@
+"Name","Brand","Status"
+"<script>alert('test1');</script>","<script>alert('test1');</script>",1
+"<input type='hidden' onclick='alert(1);'>","yolo2",2

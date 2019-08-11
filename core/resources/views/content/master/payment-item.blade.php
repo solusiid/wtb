@@ -1,0 +1,132 @@
+    <div class="page">
+        <div class="page-header">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item active">Master</li>
+                <li class="breadcrumb-item active">Payment Method</li>
+            </ol>
+        </div>
+        <div class="page-content">
+            <div class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions"></div>
+                    <h3 class="panel-title">Add Payment Method Item</h3>
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="text" id="payment" class="form-control"/>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-icon btn-primary" id="upload">Add Payment</button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions"></div>
+                    <h3 class="panel-title">Payment Method Item WTB</h3>
+                </header>
+                <div class="panel-body">
+                    <table class="table table-hover dataTable table-striped w-full" id="datalist">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var objTable = {};
+        $(document).ready(function () {
+            objTable.data = $('#datalist').DataTable({
+                "dom": 'frtip',
+                "pageLength" : 10,
+                "scrollX" : true,
+                "ajax": {
+                    "url": "{{ route('api-list-payment') }}",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data" : "id"},
+                    { "data" : "payment_name"},
+                    { 
+                        mRender: function (data, type, row) {
+                            if(row.stat_payment == '0') {
+                                return '<button class="btn btn-icon btn-success btn-xs" onclick="editIt(' +row.id+ ', 1)">Active</button>';
+                            } else {
+                                return '<button class="btn btn-icon btn-danger btn-xs" onclick="editIt(' +row.id+ ', 0)">Deactive</button>';
+                            }
+                        }
+                    },
+                    {
+                        mRender: function (data, type, row) {
+                            if(row.stat_payment == '1') {
+                                return '<button class="btn btn-icon btn-info btn-xs" onclick="viewIt(' +row.id+ ')">View</button>'; 
+                            } else {
+                                return '<button class="btn btn-icon btn-info btn-xs" onclick="viewIt(' +row.id+ ')">View</button>'; 
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+        
+        function viewIt(id) {
+            var link = "{{ route('detail', [':param', ':id']) }}";
+	        link = link.replace(':id', id);
+	        link = link.replace(':param', 'payment');
+            window.location.replace(link);
+        }
+
+        $('#upload').click(function(){
+            document.getElementById("upload").disabled = true;
+            $.post("{{ route('add-list-payment') }}", {
+                payment   : $('#payment').val(),
+                _token    : '{{ Session::token() }}'
+            },
+            function(data, status){
+                if(data) {
+                    var datanotif = JSON.parse(data);
+                    if(datanotif.rc == '00'){        
+                        swal("Success!", datanotif.rcdesc, "success");
+                        objTable.data.ajax.reload();
+                        $("#payment").val("");
+                        document.getElementById("upload").disabled = false;
+                    } else {
+                        swal("Error!", datanotif.rcdesc, "error");
+                        $("#payment").val("");
+                        document.getElementById("upload").disabled = false;
+                    }
+                }
+            });
+        });
+        
+        function editIt(id, stat) {
+            $.post("{{ route('update-data') }}", {
+                id   : id,
+                data   : 'payment',
+                stat    : stat,
+                _token    : '{{ Session::token() }}'
+            },
+            function(data, status){
+                if(data) {
+                    var datanotif = JSON.parse(data);
+                    if(datanotif.rc == '00'){        
+                        swal("Success!", datanotif.rcdesc, "success");
+                        objTable.data.ajax.reload();
+                        $("#payment").val("");
+                    } else {
+                        swal("Error!", datanotif.rcdesc, "error");
+                    }
+                }
+            });
+        }
+    </script>

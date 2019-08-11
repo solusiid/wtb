@@ -1,0 +1,14 @@
+Name,"Parent Category ",Status
+"Category 03","Category 03",1
+"Category 07",,1
+"Category 08",NULL,1
+"Category 999",,1
+"Category 666",NULL,0
+"Category 55",,1
+"Category 66",,0
+"Category Test",NULL,1
+"Category Test Chield","Category Test",1
+Mobil,NULL,1
+"Mobil Baru",Mobil,1
+Name,NULL,0
+,NULL,1

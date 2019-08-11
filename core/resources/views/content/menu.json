@@ -1,0 +1,74 @@
+{
+	"master" : [
+		{
+			"menu_name" : "Category Item",
+			"menu_param" : "cat-item"
+		}, {
+			"menu_name" : "Brand Item",
+			"menu_param" : "merk-item"
+		}, {
+			"menu_name" : "Model Item",
+			"menu_param" : "model-item"
+		}, {
+			"menu_name" : "Type Item",
+			"menu_param" : "type-item"
+		}, {
+			"menu_name" : "Payment Method",
+			"menu_param" : "payment-item"
+		}, {
+			"menu_name" : "Tenor",
+			"menu_param" : "tenor-item"
+		}, {
+			"menu_name" : "City",
+			"menu_param" : "city"
+		}, 
+	],
+	"account" : [
+		{
+			"menu_name" : "User Grade",
+			"menu_param" : "user-grade"
+		}, {
+			"menu_name" : "Admin Level",
+			"menu_param" : "admin"
+		}, {
+			"menu_name" : "Customer",
+			"menu_param" : "cutomer"
+		}, {
+			"menu_name" : "Seller Admin",
+			"menu_param" : "seller-adm"
+		}, {
+			"menu_name" : "Seller",
+			"menu_param" : "seller"
+		}
+	],
+	"request" : [
+		{
+			"menu_name" : "All Request",
+			"menu_param" : "all-request"
+		}, {
+			"menu_name" : "All Offers",
+			"menu_param" : "all-offers"
+		}, {
+			"menu_name" : "All Payment",
+			"menu_param" : "all-payment"
+		}, {
+			"menu_name" : "Send Notification",
+			"menu_param" : "send-notification"
+		}
+	],
+	"notification" : [
+		{
+			"menu_name" : "Notification",
+			"menu_param" : "notification"
+		}
+	],
+	"system" : [
+		{
+			"menu_name" : "Log",
+			"menu_param" : "log"
+		}, {
+			"menu_name" : "System",
+			"menu_param" : "system"
+		}
+	]
+}

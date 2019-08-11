@@ -1,0 +1,3 @@
+"Name","Brand","Status"
+"<script>alert('test1');</script>","<script>alert('test1');</script>",1
+"<body onload="alert('XSS');">","yolo2",2

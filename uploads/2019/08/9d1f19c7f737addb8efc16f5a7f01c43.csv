@@ -1,0 +1,6 @@
+Name,Category,Status
+Mobil Baru,Mobil,1
+Mobil Bekas,Mobil,1
+Mobil SUV,<script>alert('xss')</script>,1
+Bus,Mobil,<script>alert('xss')</script>
+<b>Truk</b>,Mobil,1

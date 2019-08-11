@@ -1,0 +1,3 @@
+"Name","Status"
+select @@version,1
+"yolo",2

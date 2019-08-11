@@ -1,0 +1,6 @@
+Name,Model,Status
+2.0L,CRV,1
+S MT,Mobilio,<script>alert('xss')</script>
+<b>E MT</b>,Livina,1
+2.4 G M/T,Fortuner,1
+2.0 AT,<script>alert('xss')</script>,1
